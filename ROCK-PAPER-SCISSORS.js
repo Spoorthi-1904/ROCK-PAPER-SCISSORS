@@ -35,10 +35,36 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }
+
+function game(){
+    let computerScore = 0;
+    let playerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("What would you like to select, rock or paper or scissors?");
+        playerSelection = playerSelection.toLowerCase();
+        let computerSelection = getComputerChoice();
+        ans = playRound(playerSelection, computerSelection);
+        console.log(ans)
+        if(ans.substr(4,3)==='Win'){
+            playerScore+=1
+        }
+        else if(ans.substr(4,4)==='Lose'){
+            computerScore+=1
+        }
+     }
+     if(playerScore>computerScore){
+        return("Player Wins!!!")
+     }
+     else if(playerScore<computerScore){
+        return("Computer Wins!!!")
+     }
+}
 //choice = getComputerChoice();
 //console.log(choice);
-let playerSelection = prompt("What would you like to select, rock or paper or scissors?");
-playerSelection = playerSelection.toLowerCase();
-let computerSelection = getComputerChoice();
-console.log(playerSelection);
-console.log(playRound(playerSelection, computerSelection));
+//let playerSelection = prompt("What would you like to select, rock or paper or scissors?");
+//playerSelection = playerSelection.toLowerCase();
+//let computerSelection = getComputerChoice();
+//console.log(playerSelection);
+//console.log(playRound(playerSelection, computerSelection));
+ans = game();
+console.log(ans);
